@@ -20,11 +20,14 @@ class OracleOfBacon
   validate :from_does_not_equal_to
 
   def from_does_not_equal_to
-    # YOUR CODE HERE
+    errors.add(:from, "from can't be the same as to") if(@from == @to)
   end
 
   def initialize(api_key='')
     # your code here
+    @api_key = api_key
+    @from = 'Kevin Bacon'
+    @to = 'Kevin Bacon'
   end
 
   def find_connections
